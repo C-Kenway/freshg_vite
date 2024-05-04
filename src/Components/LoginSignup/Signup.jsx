@@ -16,7 +16,7 @@ export const LoginSignup = () => {
         try {
             await createUserWithEmailAndPassword(auth,correo,contraseña)
         } catch (error) {
-            alert("Asegurese que la contraseña tiene al menos 6 caracteres")
+            alert("Correo o contraseña no valido")
         }
         
     }
