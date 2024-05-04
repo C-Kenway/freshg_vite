@@ -9,9 +9,9 @@ export const Nosotros = () => {
     return (
         <div className='container'>
             <div className="header">
-            <Link to={"/MainMenu"}><img src={back} alt="" className='exit-img' /></Link>
+            <Link to={"/"}><img src={back} alt="" className='exit-img' /></Link>
                 <div className="mainlogo">
-                    <Link to={"/MainMenu"}><img src={main_logo} alt="" /></Link>
+                    <img src={main_logo} alt="" />
                 </div>
             </div>
             <div className="data">

@@ -8,7 +8,7 @@ export const Politicas = () => {
     return (
         <div className='container'>
             <div className="header">
-                <Link to={"/MainMenu"}><img src={back} alt="" className='exit-img' /></Link>
+                <Link to={"/"}><img src={back} alt="" className='exit-img' /></Link>
                 <div className="mainlogo">
                     <img src={main_logo} alt="" />
                 </div>
