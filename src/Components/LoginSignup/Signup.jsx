@@ -5,16 +5,20 @@ import main_logo from '../../assets/freshguard-logo.jpeg'
 
 import appFirebase from '../../credenciales'
 import {getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 const auth = getAuth(appFirebase)
 
 export const LoginSignup = () => {
 
+    const navigate = useNavigate();
+    
     const functAutentication = async (e) =>{
         e.preventDefault();
         const correo = e.target.email.value;
         const contraseña = e.target.password.value;
         try {
             await createUserWithEmailAndPassword(auth,correo,contraseña)
+            navigate('/');
         } catch (error) {
             alert("Correo o contraseña no valido")
         }
