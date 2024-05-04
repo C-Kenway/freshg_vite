@@ -1,7 +1,6 @@
 import '../Styles/login_signup.css'
 import email_icon from '../../assets/LoginSignUp/email.png'
 import password_icon from '../../assets/LoginSignUp/password.png'
-import user_icon from '../../assets/LoginSignUp/person.png'
 import main_logo from '../../assets/freshguard-logo.jpeg'
 
 import appFirebase from '../../credenciales'
@@ -12,7 +11,6 @@ export const LoginSignup = () => {
 
     const functAutentication = async (e) =>{
         e.preventDefault();
-        //const usuario = e.target.user.value;
         const correo = e.target.email.value;
         const contraseña = e.target.password.value;
         try {
@@ -35,10 +33,6 @@ export const LoginSignup = () => {
                 </div>
                 <form onSubmit={functAutentication}>
                     <div className="inputs">
-                        {/* <div className="input">
-                            <img src={user_icon} alt="" />
-                            <input type="text" class="input-line" placeholder="Usuario" id='user'/>
-                        </div> */}
                         <div className="input">
                             <img src={email_icon} alt="" />
                             <input type="email" class="input-line" placeholder="Email" id='email'/>
