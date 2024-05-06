@@ -32,7 +32,7 @@ export const LoginSignup = () => {
             </div>
             <div className="data_log">
                 <div className='header_log'>
-                    <div className="text">Regístrate</div>
+                    <div className="text">REGISTRO</div>
                     <div className="underline"></div>
                 </div>
                 <form onSubmit={functAutentication}>
