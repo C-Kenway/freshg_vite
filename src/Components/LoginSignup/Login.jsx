@@ -49,7 +49,6 @@ export const Login = () => {
                         <button className={"submit_log"}>Iniciar Sesion</button>
                     </div>
                 </form>
-                {/* <div className="link-Signup">¿No tienes cuenta aun?<span>CLICK AQUI</span></div> */}
                 <div className="link-Signup">¿No tienes cuenta aun? <Link to={"/Signup"}><span>CLICK AQUI</span></Link></div>
             </div>
         </div>

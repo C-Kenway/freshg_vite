@@ -97,6 +97,13 @@ body{
     color: #00142D;
     cursor: pointer;
 }
+/* Estilos para alinear checkbox y enlace */
+.checkbox-link-container {
+    padding-left: 500px;
+    display: flex; /* Mostrar los elementos como flex */
+    align-items: center; /* Centrar verticalmente los elementos */
+    gap: 10px; /* Espacio entre el checkbox y el enlace */
+}
 
 /* Estilos para pantallas pequeñas (hasta 480px de ancho) */
 @media (max-width: 480px) {
@@ -156,6 +163,9 @@ body{
         color: #797979;
         font-size: 10px;
     }
+    .checkbox-link-container{
+        padding-left: 10px;
+    }
 }
 
 /* Estilos para pantallas medianas (de 481px a 768px de ancho) */
@@ -212,6 +222,9 @@ body{
         color: #797979;
         font-size: 14px;
     }
+    .checkbox-link-container{
+        padding-left: 150px;
+    }
 }
 
 /* Estilos para pantallas grandes (de 769px a 1024px de ancho) */
@@ -264,5 +277,8 @@ body{
         padding-left: 400px;
         color: #797979;
         font-size: 15px;
+    }
+    .checkbox-link-container{
+        padding-left: 300px;
     }
 } 
