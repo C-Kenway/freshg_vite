@@ -41,12 +41,6 @@
     display: flex;
 }
 
-.header_nav a {
-    text-decoration: none;
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: underline;
-}
 
 .imagen.muestra {
     width: 500px;

@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
-//css
-import '../Styles/menu_style.css'
+//scss
+import '../Styles/menu_style.scss'
 //rutas de imagnenes
+import CustomButton from './ButtonExit'; // Importa el componente CustomButton
 import main_logo from '../../assets/freshguard-logo.jpeg'
 import camara from '../../assets/MainMenu/camara.png'
 import doc from '../../assets/MainMenu/doc.png'
 import info from '../../assets/MainMenu/info.png'
-import exit from '../../assets/MainMenu/exit.png'
+//import exit from '../../assets/MainMenu/exit.png'
 
 //importando los modulos de firebase
 import appFirebase from '../../credenciales';
@@ -30,9 +31,7 @@ export const MainMenu = ({ correoUsuario }) => {
     return (
         <div className='container'>
             <div className="header">
-                <button onClick={()=>signOut(auth)}>
-                    <img src={exit} alt="" className='exit-img' />
-                </button>
+                <CustomButton text="Cerrar Sesión" onClick={() => signOut(auth)} />
                 <div className="mainlogo">
                     <img src={main_logo} alt="" />
                 </div>
