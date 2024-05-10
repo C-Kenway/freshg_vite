@@ -12,6 +12,7 @@ import Signup from './Components/LoginSignup/Signup';
 import MainMenu from './Components/MainMenu/MainMenu';
 import Info_us from './Components/Info_us/Nosotros';
 import Politicas from './Components/Info_us/Politicas';
+import Result from './Components/result/Result';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 {/* Ruta para el menú principal */}
                 <Route path="/" element={usuario ? <MainMenu correoUsuario={usuario.email} /> : <Login />} />
                 <Route path="/Signup" element={<Signup />} />
+                <Route path="/Resultados" element={usuario ? <Result /> : <Login/> } />
                 <Route path='/Nosotros' element={<Info_us/>} />
                 <Route path='/Politicas' element={<Politicas/>} />
             </Routes>
