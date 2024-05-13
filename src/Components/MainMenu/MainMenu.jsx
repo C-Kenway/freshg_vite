@@ -1,32 +1,47 @@
-import React, { useRef } from 'react';
-//scss
-import '../Styles/menu_style.scss'
-//rutas de imagnenes
-import CustomButton from './ButtonExit'; // Importa el componente CustomButton
-import main_logo from '../../assets/freshguard-logo.jpeg'
-import camara from '../../assets/MainMenu/camara.png'
-import doc from '../../assets/MainMenu/doc.png'
-import info from '../../assets/MainMenu/info.png'
-//import exit from '../../assets/MainMenu/exit.png'
-
-//importando los modulos de firebase
+import React, { useRef, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+// SCSS
+import '../Styles/menu_style.scss';
+// Rutas de imágenes
+import CustomButton from './ButtonExit';
+import main_logo from '../../assets/freshguard-logo.jpeg';
+import camara from '../../assets/MainMenu/camara.png';
+import info from '../../assets/MainMenu/info.png';
+import doc from '../../assets/MainMenu/doc.png';
+// Importando los módulos de Firebase
 import appFirebase from '../../credenciales';
 import { getAuth, signOut } from 'firebase/auth';
-const auth = getAuth(appFirebase)
-//Para desplazarse entre paginas
-import { Link } from 'react-router-dom';
+const auth = getAuth(appFirebase);
 
-export const MainMenu = ({ correoUsuario }) => {
-    // Crea una referencia al elemento de entrada de tipo file
+const MainMenu = ({ correoUsuario }) => {
     const fileInputRef = useRef(null);
+    const navigate = useNavigate();
+    const [imageBase64, setImageBase64] = useState(null);
 
-    // Maneja el clic en el botón
     const handleButtonClick = () => {
-        // Simula un clic en el input file cuando se hace clic en el botón
-        if (fileInputRef.current) {
-            fileInputRef.current.click();
+        fileInputRef.current.click();
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            console.log('Archivo seleccionado:', file);
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                // Convertir la imagen a base64
+                setImageBase64(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
+
+    useEffect(() => {
+        // Si la imagen base64 está disponible, navegar a la página de resultados
+        if (imageBase64) {
+            navigate('/Resultados', { state: { imageBase64 } });
+        }
+    }, [imageBase64, navigate]);
 
     return (
         <div className='container'>
@@ -39,27 +54,18 @@ export const MainMenu = ({ correoUsuario }) => {
             <div className="data">
                 <div className="info_count-container">
                     <div className="text">Información de la cuenta</div>
-                    <p>¡Bienvenido, {correoUsuario}!</p>
-                    <p>No olvides leer las políticas de la página, así como acerca de nosotros si quisieras conocer más sobre Freshguard.</p>
+                    <p>¡Bienvenido {correoUsuario}!</p>
+                    <p>No olvide leer las políticas de la página así como acerca de nosotros si quisiera conocer más sobre Freshguard.</p>
                 </div>
                 <div className="submit-container">
                     <div className="photo-load">
-                        {/* Añade un input de tipo file y ocúltalo */}
                         <input
                             type="file"
                             ref={fileInputRef}
                             style={{ display: 'none' }}
-                            accept="image/*" /* Permite solo imágenes */
-                            onChange={(e) => {
-                                // Maneja el cambio de archivo seleccionado
-                                const file = e.target.files[0];
-                                if (file) {
-                                    // Maneja el archivo seleccionado aquí
-                                    console.log('Archivo seleccionado:', file);
-                                }
-                            }}
+                            accept="image/*"
+                            onChange={handleFileChange}
                         />
-                        {/* Botón que al hacer clic abrirá la ventana para seleccionar archivo */}
                         <button onClick={handleButtonClick}>
                             <img src={camara} alt="" className='submit' />
                         </button>
@@ -68,23 +74,17 @@ export const MainMenu = ({ correoUsuario }) => {
                     <div className="info-us">
                         <div>
                             <Link to={"/Nosotros"}><img src={info} alt="" className='submit' /></Link>
-                            <p>Hacerca de nosotros</p>
+                            <p>Acerca de nosotros</p>
                         </div>
                         <div>
                             <Link to={"/Politicas"}><img src={doc} alt="" className='submit' /></Link>
-                            <p>Politicas</p>
+                            <p>Políticas</p>
                         </div>
                     </div>
                 </div>
-                {/*<div className="history-container">
-                <div className="text">Historial</div>
-            </div>*/}
             </div>
         </div>
     )
-}
-
-
-
+};
 
 export default MainMenu;

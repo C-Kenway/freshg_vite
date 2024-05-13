@@ -1,21 +1,15 @@
-import React, { useRef } from 'react';
-//css
-import '../Styles/results.css'
-//rutas de imagnenes
-import back from '../../assets/MainMenu/back.png'
-import prueba from '../../assets/prueba.jpg'
-
-//importando los modulos de firebase
-import appFirebase from '../../credenciales';
-import { getAuth, signOut } from 'firebase/auth';
-const auth = getAuth(appFirebase)
-//Para desplazarse entre paginas
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+// CSS
+import '../Styles/results.css';
+// Rutas de imágenes
+import back from '../../assets/MainMenu/back.png';
 
-export const result = () => {
-// Utiliza el hook `useLocation` para obtener el estado con la imagen base64
-const location = useLocation();
-const { imageBase64 } = location.state || {};
+const Result = () => {
+    // Utiliza el hook `useLocation` para obtener el estado con la imagen base64
+    const location = useLocation();
+    const { imageBase64 } = location.state || {};
+
     return (
         <div className='container_res'>
             <div className="header_res">
@@ -25,8 +19,9 @@ const { imageBase64 } = location.state || {};
                     <Link to={"/Resultados"}>Resultados</Link>
                 </div>
             </div>
-            <div className='imagen muestra'>
-                    <img src={prueba} alt="" className='img_muestra'/>
+            <div className='imagen_muestra'>
+                {/* Muestra la imagen base64 */}
+                {imageBase64 && <img src={imageBase64} className="img_muestra" />}
             </div>
             <div className="data_res">
                 <div className="info_daños">
@@ -36,14 +31,11 @@ const { imageBase64 } = location.state || {};
                 </div>
                 <div className="info_recomendaciones">
                     <div className="text">Recomendaciones</div>
-                    <p>Nuestro sistema está planeado para clasificar defectos en
-                        tomate Saladette y chile serrano a través de imágenes tomadas a dichos productos; 
-                        procesadas por la implementacion de una red neuronal capaz de identificar los defectos 
-                        capturados en la imagen.</p>
+                    <p>Tomate sano y ¡listo para comer!</p>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default result;
+export default Result;
