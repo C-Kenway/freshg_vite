@@ -39,10 +39,8 @@ export const MainMenu = ({ correoUsuario }) => {
             <div className="data">
                 <div className="info_count-container">
                     <div className="text">Información de la cuenta</div>
-                    <p>¡Bienvenido {correoUsuario}!</p>
-                    <p>No olvide leer las politicas de la pagina asi
-                        como hacerca de nosotros si quisiera conocer mas
-                        sobre Freshguard</p>
+                    <p>¡Bienvenido, {correoUsuario}!</p>
+                    <p>No olvides leer las políticas de la página, así como acerca de nosotros si quisieras conocer más sobre Freshguard.</p>
                 </div>
                 <div className="submit-container">
                     <div className="photo-load">

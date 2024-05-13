@@ -10,10 +10,12 @@ import appFirebase from '../../credenciales';
 import { getAuth, signOut } from 'firebase/auth';
 const auth = getAuth(appFirebase)
 //Para desplazarse entre paginas
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const result = () => {
-
+// Utiliza el hook `useLocation` para obtener el estado con la imagen base64
+const location = useLocation();
+const { imageBase64 } = location.state || {};
     return (
         <div className='container_res'>
             <div className="header_res">

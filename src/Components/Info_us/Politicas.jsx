@@ -15,15 +15,18 @@ export const Politicas = () => {
             </div>
             <div className="data">
                 <div className="info_count-container">
-                    <div className="text">Politicas de uso</div>
-                    <p>En el mundo dinámico y cambiante de la industria alimentaria, la búsqueda constante de la mejora en la
-                        calidad de productos perecederos se convierte en un desafío apremiante. En este contexto, surge la pregunta fundamental:
-                        ¿Cómo puede la tecnología desempeñar un papel crucial en elevando la calidad de alimentos susceptibles a la descomposición?</p>
-                    <p>
-                        Los productos perecederos, desde derivados animales hasta las frutas más delicadas, enfrentan la constante
-                        amenaza de deterioro, donde factores como la temperatura, la humedad y la presión son determinantes críticos. La necesidad de
-                        identificar y abordar los defectos en estos productos se convierte en un imperativo, no solo desde la perspectiva de la industria, sino también en términos de los estándares establecidos por las Normas Oficiales Mexicanas (NOM) y las Normas Mexicanas (NMX). Este desafío se manifiesta de manera palpable en la pérdida de calidad, servicio inadecuado al cliente y pérdidas económicas.
-                    </p>
+                    <h2>¡Bienvenido a Freshguard!</h2>
+                    <div className="text">Términos y Condiciones de Uso</div>
+                    <p>Por favor, lee detenidamente estos términos y condiciones antes de utilizar nuestro servicio.</p>
+                    <ol>
+                        <li>Aceptación de los Términos:</li><p>Al utilizar nuestro servicio, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, por favor, no utilices nuestro servicio.</p>
+                        <li>Descripción del Servicio:</li><p> Freshguard ofrece un servicio que permite a los usuarios cargar imágenes de jitomates y chiles serranos para determinar si están enfermos o sanos. Nuestro servicio se basa en la normativa mexicana para clasificar las enfermedades y estados de los productos.</p>
+                        <li>Uso Aceptable</li><p>Los usuarios deben utilizar nuestro servicio de manera responsable y legal. No se permite el uso del servicio para actividades ilegales o fraudulentas.</p>
+                        <li>Precisión de los Resultados: </li><p>Hacemos todo lo posible para proporcionar resultados precisos, pero no podemos garantizar la precisión al 100%. Los resultados son proporcionados con fines informativos y educativos únicamente, y no deben sustituir el asesoramiento profesional o médico.</p>
+                        <li>Cumplimiento Normativo:</li><p>Nos comprometemos a cumplir con todas las leyes y regulaciones pertinentes, especialmente aquellas relacionadas con la clasificación de enfermedades y estados de los productos alimenticios según la normativa mexicana.</p>
+                        <li>Modificaciones:</li><p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Se notificará a los usuarios sobre cualquier cambio realizado.</p>
+                    </ol>
+
                 </div>
                 <div className="submit-container">
                     <div className="politics">
