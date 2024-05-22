@@ -8,7 +8,7 @@ import back from '../../assets/MainMenu/back.png';
 const Result = () => {
     // Utiliza el hook `useLocation` para obtener el estado con la imagen base64
     const location = useLocation();
-    const { imageBase64 } = location.state || {};
+    const { imageBase64, result } = location.state || {};
 
     return (
         <div className='container_res'>
@@ -24,15 +24,14 @@ const Result = () => {
                 {imageBase64 && <img src={imageBase64} className="img_muestra" />}
             </div>
             <div className="data_res">
-                <div className="info_daños">
-                    <div className="text_res">Daño(s)</div>
-                    <p>Saludable</p>
-                    <p>Saludable</p>
-                </div>
-                <div className="info_recomendaciones">
-                    <div className="text">Recomendaciones</div>
-                    <p>Tomate sano y ¡listo para comer!</p>
-                </div>
+                {result && (<div className="info_daños">
+                    <div className="text_res">Predicción:</div>
+                    <h6>{result.prediction}</h6>
+                </div>)}
+                {result && (<div className="info_recomendaciones">
+                    <div className="text_res">Extra</div>
+                    <p>{result.additional_text}</p>
+                </div>)}
             </div>
         </div>
     );
