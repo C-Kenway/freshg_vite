@@ -9,19 +9,26 @@ import appFirebase from '../../credenciales'
 import {getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 const auth = getAuth(appFirebase)
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
-export const Login = () => {
+export const Login = () => { 
+
+    const ShowLoaingMessege = (flag) =>{
+        if(flag)Swal.showLoading()
+        else Swal.close()
+    }
 
     const functAutentication = async (e) =>{
-        e.preventDefault();
-        const correo = e.target.email.value;
-        const contraseña = e.target.password.value;
+        ShowLoaingMessege(true)
+        e.preventDefault()
+        const correo = e.target.email.value
+        const contraseña = e.target.password.value
         try {
             await signInWithEmailAndPassword(auth,correo,contraseña)
         } catch (error) {
             alert("El correo o contraseña no son correctos")
         }
-    
+        ShowLoaingMessege(false)
     }
 
     return (

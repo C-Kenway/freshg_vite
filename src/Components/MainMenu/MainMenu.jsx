@@ -1,14 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// SCSS
 import '../Styles/menu_style.scss';
-// Rutas de imágenes
 import CustomButton from './ButtonExit';
 import main_logo from '../../assets/freshguard-logo.jpeg';
 import camara from '../../assets/MainMenu/camara.png';
 import info from '../../assets/MainMenu/info.png';
 import doc from '../../assets/MainMenu/doc.png';
-// Importando los módulos de Firebase
+import Swal from 'sweetalert2';
 import appFirebase from '../../credenciales';
 import { getAuth, signOut } from 'firebase/auth';
 const auth = getAuth(appFirebase);
@@ -26,41 +24,60 @@ const MainMenu = ({ correoUsuario }) => {
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-        const file = e.target.files[0];
-        //Para Enviar a la api
         if (selectedFile) {
             setFile(selectedFile);
-        }
-        //Para enviar a la otra pagina y vizualisarla
-        if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setImageBase64(reader.result);
             };
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(selectedFile);
         }
-
     };
 
-    useEffect(() => {
-        const uploadImage = async () => {
-            if (file) {
-                const formData = new FormData();
-                formData.append('image', file);
+    const uploadImage = async () => {
+        if (file && imageBase64) {
+            const formData = new FormData();
+            formData.append('image', file);
 
-                const response = await fetch('https://02b1-2806-265-348b-719-5017-d82f-5468-ad1b.ngrok-free.app/predict', {
+            try {
+                const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
                     method: 'POST',
-                    body: formData
+                    body: formData,
                 });
 
                 const data = await response.json();
-                setResult(data);
+                const statusCode = response.status;
 
-                navigate('/Resultados', { state: { imageBase64, result: data } });
+                if (statusCode === 200 || statusCode === 201) {
+                    setResult(data);
+                    navigate('/Resultados', { state: { imageBase64, result: data } });
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Imagen cargada correctamente',
+                        showConfirmButton: false,
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No se pudo cargar la imagen, intente nuevamente.',
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Parece que hubo un error por parte del servidor, intentelo nuevamente.',
+                });
             }
-        };
-        uploadImage();
-    }, [file,imageBase64, navigate]);
+        }
+    };
+
+    useEffect(() => {
+        if (file && imageBase64) {
+            uploadImage();
+        }
+    }, [file, imageBase64]);
 
     return (
         <div className='container'>
@@ -97,7 +114,7 @@ const MainMenu = ({ correoUsuario }) => {
                         </div>
                         <div>
                             <Link to={"/Politicas"}><img src={doc} alt="Políticas" className='submit' /></Link>
-                            <p>Políticas</p>
+                            <p>Términos y condiciones</p>
                         </div>
                     </div>
                 </div>

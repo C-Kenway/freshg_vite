@@ -16,8 +16,7 @@ export const Nosotros = () => {
             </div>
             <div className="data">
                 <div className="info_count-container">
-                    <div className="text">Introduccion</div>
-                    <p>Problematica</p>
+                    <div className="text">Problematicá</div>
                     <p>En el mundo dinámico y cambiante de la industria alimentaria, la búsqueda constante de la mejora en la
                         calidad de productos perecederos se convierte en un desafío apremiante. En este contexto, surge la pregunta fundamental:
                         ¿Cómo puede la tecnología desempeñar un papel crucial en elevando la calidad de alimentos susceptibles a la descomposición?</p>
@@ -34,10 +33,9 @@ export const Nosotros = () => {
                     </div>
                 </div>
                 <div className="info_count-container">
-                    <div className="text">Proposito</div>
-                    <p>¿Quienes somos?</p>
+                    <div className="text">¿Quiénes somos?</div>
                     <p>Somos un grupo de jovenes que buscan reducir el impacto ambiental que se tiene al existir grandes cantidades de productos perecederos</p>
-                    <p>¿Que hace el sistema?</p>
+                    <p className='text'>¿Qué hace el sistema?</p>
                     <p>Nuestro sistema está planeado para clasificar defectos en tomate Saladette y chile serrano a través de imágenes tomadas a dichos productos; procesadas por la implementacion de una red neuronal capaz de identificar los defectos capturados en la imagen.</p>
                 </div>
             </div>

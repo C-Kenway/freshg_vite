@@ -8,6 +8,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Swal from 'sweetalert2'
 
 const auth = getAuth(appFirebase);
 
@@ -15,12 +16,18 @@ export const LoginSignup = () => {
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
 
+    const ShowLoaingMessege = (flag) =>{
+        if(flag)Swal.showLoading()
+        else Swal.close()
+    }
+
     const functAutentication = async (e) => {
         e.preventDefault();
-        
+        ShowLoaingMessege(true)
         // Verifica si el checkbox está marcado
         if (!isChecked) {
-            alert('Debes aceptar los términos y condiciones.');
+            alert('Se deben aceptar términos y condiciones.');
+            ShowLoaingMessege(false)
             return;
         }
         
@@ -33,6 +40,7 @@ export const LoginSignup = () => {
         } catch (error) {
             alert("Correo o contraseña no válido");
         }
+        ShowLoaingMessege(false)
     };
 
     const handleCheckboxChange = (e) => {

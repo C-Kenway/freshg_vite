@@ -14,7 +14,7 @@ const Result = () => {
         <div className='container_res'>
             <div className="header_res">
                 <Link to={"/"}><img src={back} alt="" className='back-img' /></Link>
-                <div className='head-text_res'>Jitomate Saladete</div>
+                <div className='head-text_res'>{result.fruitName}</div>
                 <div className='header_nav'>
                     <Link to={"/Resultados"}>Resultados</Link>
                 </div>
@@ -29,7 +29,7 @@ const Result = () => {
                     <h6>{result.prediction}</h6>
                 </div>)}
                 {result && (<div className="info_recomendaciones">
-                    <div className="text_res">Extra</div>
+                    <div className="text_res">Extra:</div>
                     <p>{result.additional_text}</p>
                 </div>)}
             </div>

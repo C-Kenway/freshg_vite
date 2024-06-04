@@ -105,6 +105,13 @@ body{
     gap: 10px; /* Espacio entre el checkbox y el enlace */
 }
 
+.loading{
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
 /* Estilos para pantallas pequeñas (hasta 480px de ancho) */
 @media (max-width: 480px) {
     .text{
