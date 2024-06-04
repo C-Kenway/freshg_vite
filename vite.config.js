@@ -5,14 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // Esto permite conexiones desde cualquier dirección IP
-    port: 3000, // O cualquier puerto que se prefiera
+    host: '0.0.0.0',
+    port: 3000,
     proxy: {
       '/predict': {
-        target: 'https://b868-177-226-191-150.ngrok-free.app', // URL del backend del modelo de entrenamiento
+        target: 'http://158.23.136.46:5000',
         changeOrigin: true,
         secure: false,
       },
     },
-  }
-})
+  },
+});

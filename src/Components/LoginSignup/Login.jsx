@@ -53,7 +53,7 @@ export const Login = () => {
                         </div>
                     </div>
                     <div className="submit-container_log">
-                        <button className={"submit_log"}>Iniciar Sesion</button>
+                        <button className={"submit_log"}>Iniciar Sesión</button>
                     </div>
                 </form>
                 <div className="link-Signup">¿No tienes cuenta aun? <Link to={"/Signup"}><span>CLICK AQUI</span></Link></div>
