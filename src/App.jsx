@@ -14,7 +14,6 @@ import Info_us from './Components/Info_us/Nosotros';
 import Politicas from './Components/Info_us/Politicas';
 import Result from './Components/result/Result';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
 function App() {
 
