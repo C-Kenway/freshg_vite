@@ -33,7 +33,7 @@ function App() {
       <Router>
             <Routes>
                 {/* Ruta para el menú principal */}
-                <Route path="/" element={usuario ? <MainMenu correoUsuario={usuario.email} /> : <Login />} />
+                <Route path="/freshg_vite" element={usuario ? <MainMenu correoUsuario={usuario.email} /> : <Login />} />
                 <Route path="/Signup" element={<Signup />} />
                 <Route path="/Resultados" element={usuario ? <Result /> : <Login/> } />
                 <Route path='/Nosotros' element={<Info_us/>} />

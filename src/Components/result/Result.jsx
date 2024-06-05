@@ -16,7 +16,7 @@ const Result = () => {
     return (
         <div className='container_res'>
             <div className="header_res">
-                <Link to={"/"}><img src={back} alt="" className='back-img' /></Link>
+                <Link to={"/freshg_vite"}><img src={back} alt="" className='back-img' /></Link>
                 <div className='head-text_res'>{result.fruitName}</div>
                 <div className='header_nav'>
                     <button className='CambiarInfo' onClick={() => setCambiantoInfo(!CambiandoInfo)}>

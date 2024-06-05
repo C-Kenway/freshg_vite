@@ -36,7 +36,7 @@ export const LoginSignup = () => {
         
         try {
             await createUserWithEmailAndPassword(auth, correo, contraseña);
-            navigate('/');
+            navigate('/freshg_vite');
         } catch (error) {
             alert("Correo o contraseña no válido");
         }

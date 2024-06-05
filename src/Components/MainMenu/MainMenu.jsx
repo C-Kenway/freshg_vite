@@ -12,6 +12,21 @@ import { getAuth, signOut } from 'firebase/auth';
 const auth = getAuth(appFirebase);
 
 const MainMenu = ({ correoUsuario }) => {
+
+    const ShowLoaingMessege = (flag) =>{
+        if(flag){
+            Swal.fire({
+                title: 'Analizando imagen...',
+                didOpen: () => {
+                  Swal.disableButtons();
+                  Swal.showLoading();
+                }
+              });
+        }
+        else Swal.close()
+    }
+
+    
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
     const [file, setFile] = useState(null);
@@ -35,10 +50,10 @@ const MainMenu = ({ correoUsuario }) => {
     };
 
     const uploadImage = async () => {
+        ShowLoaingMessege(true)
         if (file && imageBase64) {
             const formData = new FormData();
             formData.append('image', file);
-
             try {
                 const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
                     method: 'POST',
@@ -75,6 +90,7 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
+        ShowLoaingMessege(false)
     };
 
     useEffect(() => {
